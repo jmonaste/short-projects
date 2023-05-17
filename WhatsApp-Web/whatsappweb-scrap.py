@@ -25,5 +25,28 @@ for chat in chat_list:
     print("Chat:", chat_name)
     print("---")
 
+    # Verificar si el chat_name es igual a 'David' y hacer clic en el chat correspondiente
+    if chat_name == 'Monasterio Solar':
+        chat.click()
+
+
+        break  # Romper el bucle una vez se encuentra el chat deseado
+
+# Esperar hasta que se cargue el panel de conversación
+driver.implicitly_wait(10)  # Esperar hasta 10 segundos
+
+# Buscar el contenido del div 'conversation-panel-body' en toda la página
+conversation_body = driver.find_element(By.XPATH, "//div[@data-testid='conversation-panel-body']")
+
+# Obtener el texto del contenido del div
+conversation_text = conversation_body.text
+
+# Imprimir el contenido del div
+print("Contenido del div 'conversation-panel-body':")
+print(conversation_text)
+
+
+
+
 # Cerrar el navegador
 driver.quit()
